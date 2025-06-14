@@ -4,7 +4,8 @@ const path = require('path');
 const PORT = 3000;
 const app = express();
 
-let status = {"status": 1};
+const password = 'tomas1234';
+let status = { "status": 1 };
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,13 +29,17 @@ app.get('/status', (req, res) => {
 })
 
 app.post('/status', (req, res) => {
-    status.status = 2;
+    if (req.body.password == password) {
+        status.status = 2;
 
-    res.redirect(req.body.redirect);
+        res.redirect(req.body.redirect);
 
-    setTimeout(() => {
-        status.status = 1;
-    }, 70000)
+        setTimeout(() => {
+            status.status = 1;
+        }, 70000)
+    }else{
+        res.redirect(req.body.redirect);
+    }
 })
 
 app.listen(PORT, () => {
