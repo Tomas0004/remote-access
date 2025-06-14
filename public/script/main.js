@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const eventSource = new EventSource('http://localhost:3000/status');
+    const eventSource = new EventSource('https://remote-access.onrender.com/status');
     
     eventSource.onmessage = (event) => {
         if(JSON.parse(event.data).status == 2){
