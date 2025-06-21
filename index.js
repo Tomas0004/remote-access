@@ -9,7 +9,7 @@ const io = new Server(httpServer);
 
 const PORT = 3000;
 
-const password = 'tomas1234';
+const password = 'tomas200712*/';
 let status = { "status": 1 };
 
 io.on('connection', (socket) => {
